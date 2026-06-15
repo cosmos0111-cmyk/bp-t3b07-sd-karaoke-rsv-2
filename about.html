@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-acid-yellow">
+    <meta name="description" content="신도림 가라오케 찐 정보 다 모여있음. 영업시간, 가격, 위치, 시스템까지 한 방에 정리. 24시 현역 MC들이 직접 쓰는 리얼 후기. 신도림 노래방 고민 끝.">
+    <meta name="keywords" content="신도림 가라오케 정보, 신도림 노래방 정보, 신도림 가라오케 영업시간, 신도림 가라오케 가격표, 신도림 가라오케 위치, 신도림 노래방 시스템, 신도림 가라오케 후기">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://t3b07-sd-karaoke-rsv-2.vercel.app/info">
+    <meta property="og:title" content="신도림 가라오케 정보 | 이 정도는 알고 가자">
+    <meta property="og:description" content="신도림 가라오케 찐 정보 다 모여있음. 영업시간, 가격, 위치, 시스템까지 한 방에 정리. 24시 현역 MC들이 직접 쓰는 리얼 후기.">
+    <meta property="og:image" content="https://t3b07-sd-karaoke-rsv-2.vercel.app/og-info.jpg">
+    <meta property="og:url" content="https://t3b07-sd-karaoke-rsv-2.vercel.app/info">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <title>신도림 가라오케 정보 | 찐 형님들이 알려주는 핵심만</title>
+    <style>
+        /* RESET + BASE */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Arial Black', 'Impact', 'Helvetica Neue', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.4;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23f5e942" stroke-width="0.5" opacity="0.15"/><line x1="0" y1="50" x2="100" y2="50" stroke="%23f5e942" stroke-width="0.3" opacity="0.1"/><line x1="50" y1="0" x2="50" y2="100" stroke="%23f5e942" stroke-width="0.3" opacity="0.1"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+        a {
+            color: #f5e942;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        a:hover {
+            color: #ffffff;
+            border-bottom-color: #f5e942;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        /* TYPOGRAPHY - raw oversized */
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #f5e942;
+            text-shadow: 4px 4px 0 #000, 6px 6px 0 rgba(245, 233, 66, 0.3);
+            line-height: 0.9;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            color: #ffffff;
+            border-left: 8px solid #f5e942;
+            padding-left: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+        h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #f5e942;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #cccccc;
+        }
+        /* LAYOUT - full bleed, asymmetric */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        /* NAV */
+        nav {
+            background: #0d0d0d;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #f5e942;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo a {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #f5e942;
+            border: none;
+            letter-spacing: -1px;
+        }
+        nav .logo a:hover {
+            color: #ffffff;
+        }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        nav ul li a {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #f5e942;
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: #f5e942;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .tel-link {
+            display: inline-block;
+            background: #f5e942;
+            color: #0d0d0d !important;
+            padding: 0.75rem 2rem;
+            font-weight: 900;
+            font-size: 1.3rem;
+            border: 3px solid #f5e942;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tel-link:hover {
+            background: transparent;
+            color: #f5e942 !important;
+            border-color: #f5e942;
+        }
+        /* HERO SECTION */
+        .hero {
+            padding: 4rem 0 3rem;
+            border-bottom: 4px solid #f5e942;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 5rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-top: 1rem;
+        }
+        /* INFO GRID */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .info-card {
+            background: #222;
+            border: 3px solid #333;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            border-color: #f5e942;
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0 #f5e942;
+        }
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-card h3::before {
+            content: '▸';
+            color: #f5e942;
+        }
+        .info-card p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .info-card .highlight {
+            color: #f5e942;
+            font-weight: 700;
+        }
+        /* TABLE STYLE */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+        .info-table th, .info-table td {
+            border: 2px solid #333;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+        .info-table th {
+            background: #0d0d0d;
+            color: #f5e942;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .info-table td {
+            background: #1a1a1a;
+        }
+        /* FAQ SECTION */
+        .faq-section {
+            margin: 3rem 0;
+        }
+        .faq-item {
+            border-bottom: 2px solid #333;
+            padding: 1.5rem 0;
+        }
+        .faq-item:first-child {
+            border-top: 2px solid #333;
+        }
+        .faq-question {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f5e942;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 2rem;
+            color: #f5e942;
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active::after {
+            content: '−';
+        }
+        .faq-answer {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid #f5e942;
+            display: none;
+        }
+        .faq-answer.show {
+            display: block;
+        }
+        /* FOOTER */
+        footer {
+            background: #0d0d0d;
+            padding: 2rem;
+            border-top: 4px solid #f5e942;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #0d0d0d;
+                padding: 1rem 2rem;
+                border-bottom: 4px solid #f5e942;
+                gap: 1rem;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .tel-link {
+                font-size: 1rem;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/">신도림 가라오케</a>
+        </div>
+        <ul id="nav-menu">
+            <li><a href="/">홈</a></li>
+            <li><a href="/info">정보</a></li>
+            <li><a href="/reservation">예약</a></li>
+            <li><a href="tel:02-123-4567" class="tel-link">📞 전화 예약</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>신도림 가라오케<br>찐 정보</h1>
+            <p>야, 형들이 직접 써주는 신도림 노래방 필수 정보. 24시 영업, 가격, 시스템 다 정리했어. 예약 전에 이거 하나만 보고 가자.</p>
+        </section>
+
+        <section>
+            <h2>📍 위치 & 영업시간</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>주소</h3>
+                    <p>서울 구로구 신도림동 123-45</p>
+                    <p><span class="highlight">신도림역 3번 출구</span>에서 도보 3분</p>
+                    <p>골목 안쪽이라 처음 오면 찾기 힘들 수 있는데, 형이 알려준다. 역 나와서 편의점 지나서 오른쪽으로 꺾으면 바로 보여.</p>
+                </div>
+                <div class="info-card">
+                    <h3>영업시간</h3>
+                    <p><span class="highlight">24시간</span> 풀 영업</p>
+                    <p>주말에도 쉬는 날 없음. 새벽 3시에 갑자기 노래 부르고 싶을 때? 여기로 와. 나도 가끔 퇴근하고 새벽에 가는데, 직원분들이 친절하게 맞아줘.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💰 가격표</h2>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>코스</th>
+                        <th>시간</th>
+                        <th>가격</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>라이트</td>
+                        <td>2시간</td>
+                        <td>30,000원</td>
+                        <td>음료 1잔 포함</td>
+                    </tr>
+                    <tr>
+                        <td>스탠다드</td>
+                        <td>4시간</td>
+                        <td>50,000원</td>
+                        <td>음료 2잔 + 안주</td>
+                    </tr>
+                    <tr>
+                        <td>프리미엄</td>
+                        <td>6시간</td>
+                        <td>70,000원</td>
+                        <td>음료 무한 + 안주 + 룸 업그레이드</td>
+                    </tr>
+                    <tr>
+                        <td>올나잇</td>
+                        <td>야간 (22:00~06:00)</td>
+                        <td>80,000원</td>
+                        <td>음료 무한 + 스낵바</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>※ 가격은 변동될 수 있으니 예약 전 확인 필수. 형들은 보통 스탠다드나 올나잇 많이 가. 올나잇은 진짜 가성비 미쳤어.</p>
+        </section>
+
+        <section>
+            <h2>🎤 시스템 & 시설</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>룸 정보</h3>
+                    <p>총 15개 룸 (소형 6, 중형 6, 대형 3)</p>
+                    <p>소형: 2~4인 / 중형: 4~8인 / 대형: 8~15인</p>
+                    <p>모든 룸에 최신 JBL 스피커, 4K TV, 무선 마이크 2개 기본.</p>
+                    <p>대형 룸은 진짜 넓어서 단체로 가면 개꿀. 한 번
+</body>
+</html>
