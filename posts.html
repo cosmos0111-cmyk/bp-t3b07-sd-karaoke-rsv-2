@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · t3b07-sd-karaoke-rsv-2</title>
+  <meta name="description" content="t3b07-sd-karaoke-rsv-2에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://sindorim-song-zone.namanavi.com/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* RESET + BASE */
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ html { font-size: 16px; scroll-behavior: smooth; }
+ body {
+ font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+ background: #111;
+ color: #ffff00;
+ line-height: 1.3;
+ padding: 24px;
+ min-height: 100vh;
+ position: relative;
+ overflow-x: hidden;
+ }
+ /* brutalist texture overlay */
+ body::before {
+ content: '';
+ position: fixed;
+ top: 0; left: 0; width: 100%; height: 100%;
+ background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.03) 2px, rgba(0,255,65,0.03) 4px);
+ pointer-events: none;
+ z-index: 9999;
+ }
+ a { color: #00ff41; text-decoration: underline 3px; text-underline-offset: 4px; }
+ a:hover { color: #ffff00; background: #111; }
+ img { max-width: 100%; display: block; }
+ ul { list-style: none; }
+ 
+ /* TYPOGRAPHY - raw oversized */
+ h1 { font-size: 4rem; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; line-height: 0.9; color: #ffff00; text-shadow: 6px 6px 0 #00ff41; margin-bottom: 16px; transform: rotate(-1deg); }
+ h2 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; border-left: 8px solid #00ff41; padding-left: 16px; margin-bottom: 24px; transform: skewX(-3deg); }
+ h3 { font-size: 1.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
+ p { font-size: 1.1rem; margin-bottom: 16px; color: #ccffcc; }
+ 
+ /* LAYOUT - full bleed, asymmetric */
+ .container { max-width: 1400px; margin: 0 auto; padding: 0; }
+ 
+ /* HEADER */
+ header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 24px;
+ border: 4px solid #ffff00;
+ background: #111;
+ margin-bottom: 40px;
+ position: relative;
+ transform: rotate(0.5deg);
+ }
+ .logo {
+ font-size: 2.2rem;
+ font-weight: 900;
+ color: #00ff41;
+ text-transform: uppercase;
+ letter-spacing: -2px;
+ text-shadow: 3px 3px 0 #ffff00;
+ }
+ .logo span { color: #ffff00; text-shadow: 3px 3px 0 #00ff41; }
+ 
+ /* NAV */
+ nav ul { display: flex; gap: 32px; }
+ nav a {
+ font-size: 1.2rem;
+ font-weight: 700;
+ color: #ffff00;
+ text-decoration: none;
+ border: 3px solid transparent;
+ padding: 8px 12px;
+ transition: 0.1s;
+ }
+ nav a:hover {
+ border-color: #00ff41;
+ background: #ffff00;
+ color: #111;
+ }
+ 
+ /* hamburger */
+ .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; background: none; border: none; padding: 8px; }
+ .hamburger span { display: block; width: 36px; height: 5px; background: #ffff00; border: 2px solid #111; }
+ 
+ /* HERO */
+ .hero {
+ border: 5px solid #00ff41;
+ padding: 48px 32px;
+ margin-bottom: 40px;
+ background: linear-gradient(135deg, #111 0%, #1a1a00 100%);
+ position: relative;
+ transform: rotate(-0.5deg);
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 32px;
+ align-items: center;
+ }
+ .hero::after {
+ content: '★';
+ position: absolute;
+ top: -20px; right: -20px;
+ font-size: 5rem;
+ color: #ffff00;
+ transform: rotate(15deg);
+ text-shadow: 4px 4px 0 #00ff41;
+ }
+ .hero-content h1 { margin-bottom: 8px; }
+ .hero-content p { font-size: 1.4rem; font-weight: 600; color: #ffff00; margin-bottom: 24px; }
+ .hero-cta {
+ display: inline-block;
+ background: #ffff00;
+ color: #111;
+ font-size: 2rem;
+ font-weight: 900;
+ padding: 16px 48px;
+ border: 4px solid #00ff41;
+ text-decoration: none;
+ text-transform: uppercase;
+ transform: rotate(1deg);
+ transition: 0.05s;
+ }
+ .hero-cta:hover { background: #00ff41; color: #111; border-color: #ffff00; transform: rotate(-2deg) scale(1.02); }
+ .hero-visual {
+ background: repeating-linear-gradient(45deg, #00ff41 0px, #00ff41 8px, #111 8px, #111 16px);
+ border: 4px solid #ffff00;
+ min-height: 300px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 6rem;
+ color: #ffff00;
+ text-shadow: 6px 6px 0 #111;
+ position: relative;
+ overflow: hidden;
+ }
+ .hero-visual::before {
+ content: '🎤🎶🔥';
+ font-size: 5rem;
+ animation: pulse 1.5s infinite;
+ }
+ @keyframes pulse {
+ 0% { transform: scale(1) rotate(-2deg); }
+ 50% { transform: scale(1.1) rotate(2deg); }
+ 100% { transform: scale(1) rotate(-2deg); }
+ }
+ 
+ /* SECTION */
+ section { padding: 24px; margin-bottom: 40px; border: 4px solid #ffff00; position: relative; }
+ section:nth-child(odd) { transform: rotate(0.3deg); }
+ section:nth-child(even) { transform: rotate(-0.3deg); border-color: #00ff41; }
+ 
+ /* FEATURES */
+ .features-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 16px;
+ }
+ .feature-card {
+ border: 4px solid #00ff41;
+ padding: 24px;
+ background: #111;
+ transform: rotate(0.5deg);
+ transition: 0.1s;
+ }
+ .feature-card:hover { background: #1a1a00; border-color: #ffff00; transform: rotate(-0.5deg) scale(1.02); }
+ .feature-card .icon { font-size: 3rem; margin-bottom: 12px; display: block; }
+ .feature-card h3 { color: #ffff00; font-size: 1.6rem; }
+ .feature-card p { color: #ccffcc; }
+ 
+ /* REVIEWS */
+ .reviews-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 16px;
+ }
+ .review-card {
+ border: 4px solid #ffff00;
+ padding: 24px;
+ background: #111;
+ position: relative;
+ transform: rotate(-0.5deg);
+ }
+ .review-card:nth-child(even) { transform: rotate(0.5deg); border-color: #00ff41; }
+ .review-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.9rem; color: #00ff41; border-bottom: 3px solid #ffff00; padding-bottom: 8px; }
+ .review-stars { color: #ffff00; font-size: 1.4rem; letter-spacing: 4px; }
+ .review-text { font-style: italic; color: #ffffcc; font-size: 1.05rem; }
+ .review-author { font-weight: 700; color: #00ff41; margin-top: 8px; }
+ 
+ /* CTA SECTION */
+ .cta-block {
+ border: 6px solid #ffff00;
+ padding: 48px 32px;
+ text-align: center;
+ background: #111;
+ transform: rotate(-0.5deg);
+ margin-bottom: 40px;
+ }
+ .cta-block h2 { font-size: 3rem; border: none; transform: none; color: #00ff41; }
+ .cta-phone {
+ display: inline-block;
+ font-size: 3.5rem;
+ font-weight: 900;
+ color: #ffff00;
+ background: #111;
+ border: 5px solid #00ff41;
+ padding: 16px 48px;
+ margin: 24px 0;
+ text-decoration: none;
+ transform: rotate(1deg);
+ transition: 0.1s;
+ }
+ .cta-phone:hover { background: #00ff41; color: #111; border-color: #ffff00; transform: rotate(-1deg) scale(1.03); }
+ 
+ /* FOOTER */
+ footer {
+ border-top: 6px solid #ffff00;
+ padding: 32px 24px;
+ margin-top: 16px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 16px;
+ color: #00ff41;
+ font-size: 0.9rem;
+ }
+ footer a { color: #ffff00; }
+ 
+ /* RESPONSIVE */
+ @media (max-width: 768px) {
+ body { padding: 16px; }
+ h1 { font-size: 2.8rem; }
+ h2 { font-size: 2rem; }
+ .hero { grid-template-columns: 1fr; padding: 24px 16px; }
+ .hero-visual { min-height: 200px; font-size: 4rem; }
+ .hero-cta { font-size: 1.4rem; padding: 12px 24px; }
+ 
+ nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #111; border: 4px solid #00ff41; padding: 16px; gap: 16px; z-index: 100; }
+ nav ul.active { display: flex; }
+ .hamburger { display: flex; }
+ header { position: relative; flex-wrap: wrap; }
+ .cta-phone { font-size: 2rem; padding: 12px 24px; }
+ .features-grid, .reviews-grid { grid-template-columns: 1fr; }
+ footer { flex-direction: column; text-align: center; }
+ }
+ 
+ /* UTILITY */
+ .text-accent { color: #00ff41; }
+ .text-secondary { color: #ffff00; }
+ .border-box { border: 4px solid #ffff00; padding: 16px; }
+ .mt-2 { margin-top: 16px; }
+ .mb-2 { margin-bottom: 16px; }
+ 
+ /* extra raw texture */
+ .skewed { transform: skewX(-2deg); }
+ .rotated { transform: rotate(1.5deg); }
+ </style>
+  <meta property="og:title" content="글 목록 (1/2) · t3b07-sd-karaoke-rsv-2">
+  <meta property="og:description" content="t3b07-sd-karaoke-rsv-2에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://sindorim-song-zone.namanavi.com/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="logo">🎤 신도림<span>KARAOKE</span></div>
+ <nav>
+ <button class="hamburger" aria-label="메뉴 열기" onclick="document.querySelector('nav ul').classList.toggle('active')">
+ 
+ </button>
+ <ul>
+ <li><a href="#hero">홈</a></li>
+ <li><a href="#features">특징</a></li>
+ <li><a href="#reviews">후기</a></li>
+ <li><a href="#cta">예약</a></li>
+ </ul>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 38개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0417.html">신도림 가라오케 예약 대신 즐기는 마포/합정 인디 소셜 라운지 가이드와 프라이빗 파티</a>
+        <p class="post-item__summary">오랜만에 만난 친구들과 프라이빗한 공간에서 특별한 시간을 보내고 싶어 신도림 가라오케 예약을 고민하는 경우가 많습니다. 하지만 번잡한 유흥 시설 대신 최근 문화적 감성이 넘치는 마포나 합정 지역의 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0418.html">신도림 가라오케 예약 대신 체크할 동대문 마사지 방문 정보</a>
+        <p class="post-item__summary">신도림 가라오케 예약을 고민하며 즐거운 시간을 설계하는 것도 좋지만, 근본적인 신체 피로가 쌓여 있다면 관리에 먼저 눈을 돌려야 합니다. 유흥 시설을 이용하는 것만이 정답이라는 생각은 흔한 오해 중</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0419.html">신도림 가라오케 예약 고객을 위한 지수 성장 클리닉 정보 전략</a>
+        <p class="post-item__summary">웹사이트의 가시성을 확보하기 위해서는 적절한 인원 구성과 전략적인 콘텐츠 배치가 무엇보다 중요합니다. 신도림 가라오케 예약을 검색하는 잠재 고객을 유입시키기 위해서는 타깃 키워드를 자연스럽게 녹여내</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0420.html">신도림 가라오케 예약 업무를 대신할 4</a>
+        <p class="post-item__summary">반복되는 업무 때문에 업무 효율이 떨어져 고민해 본 적이 있으신가요? 신도림 가라오케 예약 시스템처럼 단순하지만 반복적인 작업을 자동화하려는 움직임은 비즈니스의 규모와 상관없이 점차 확대되고 있습니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0421.html">신도림 가라오케 예약 시스템으로 알아보는 마포 럭셔리 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">신도림 가라오케 예약 절차와 유사한 방식으로 고급 업소를 찾는 과정은 체계적인 준비가 필요합니다. 특히 마포 지역에서 럭셔리한 VIP 단체 모임을 기획한다면 공간의 규모와 서비스 질을 사전에 파악하</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0422.html">신도림 가라오케 예약 비교를 통한 구글 알고리즘 감점 치료 및 백링크 수술실 전략</a>
+        <p class="post-item__summary">신도림 가라오케 예약 플랫폼의 효율적인 검색 노출을 연구하다 보면 자연스럽게 웹사이트 최적화의 중요성을 깨닫게 됩니다. 만약 현재 사이트가 구글 알고리즘의 제재를 받고 있다면 이를 회복하기 위한 전</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0423.html">신도림 가라오케 예약 프로세스로 분석한 마포 셔츠룸 예약 시 눈탱이 피하는 법</a>
+        <p class="post-item__summary">신도림 가라오케 예약 문화가 정착된 것처럼 마포 지역 셔츠룸 이용 시에도 사전에 충분한 정보를 숙지하는 것이 중요합니다. 많은 이용자가 실패하는 지점은 불투명한 가격 책정과 현장에서 발생하는 예기치</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0424.html">신도림 가라오케 예약 노하우를 적용한 마포 코인노래방 방음 시설 비교 가이드</a>
+        <p class="post-item__summary">신도림 가라오케 예약 시 방의 밀폐력을 따지는 것처럼 마포 코인노래방 이용 시에도 방음 시설을 사전에 확인하는 것이 필수적입니다. 노래를 부르는 공간에서 옆 방의 소음이 들린다면 온전히 즐거운 시간</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0425.html">신도림 가라오케 예약 활용한 마포 셔츠룸 리얼 후기 소셜 마케팅 가이드 전략</a>
+        <p class="post-item__summary">갑작스러운 모임으로 급하게 신도림 가라오케 예약 시스템을 찾다가 마포 지역의 셔츠룸 문화에 관심을 두게 되는 경우가 많습니다. 처음 방문하는 초행자들은 정보의 파편화로 인해 어디서부터 준비해야 할지</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0426.html">신도림 가라오케 예약 방식처럼 명확한 마포 유흥 투명 정찰제 가격 정보 디렉토리</a>
+        <p class="post-item__summary">현장 분위기가 불투명하여 가격 바가지가 심할 것이라는 흔한 오해는 이제 구시대의 유물이 되었습니다. 신도림 가라오케 예약 프로세스를 통해 학습한 효율적인 예약 방식은 이제 마포 전역의 유흥 문화로 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0427.html">신도림 가라오케 예약 과정과 닮은 마포 홍대 로컬 럭셔리 밤문화 가이드 운영</a>
+        <p class="post-item__summary">고급스러운 분위기에서 품격 있는 시간을 보내기 위해서는 몇 가지 필수적인 충족 조건이 있습니다. 단순히 장소를 선정하는 것을 넘어 인원 구성과 목적에 부합하는 공간을 찾는 안목이 중요합니다. 신도림</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0428.html">신도림 가라오케 예약 대안 찾는 당신을 위한 셔츠룸 사이트 비교 가이드</a>
+        <p class="post-item__summary">혹시 신도림 가라오케 예약 대안을 찾고 계신가요? 기존의 익숙한 방식에서 벗어나 조금 더 색다른 밤문화를 경험하고 싶다면 어디서부터 무엇을 확인해야 할지 고민이 많을 것입니다. 검증되지 않은 플랫폼</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0429.html">신도림 가라오케 예약 시스템으로 알아보는 마포 홍대 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">신도림 가라오케 예약 방식을 참고하여 인근 지역의 대규모 모임을 준비하는 분들이 많습니다. 홍대와 합정 일대는 수요가 몰리는 지역인 만큼 체계적인 접근이 필요합니다. 성공적인 모임을 위해 인원 규모</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0430.html">신도림 가라오케 예약 방식처럼 살피는 구글 알고리즘 고신용 도메인 보증 카드 발급</a>
+        <p class="post-item__summary">신도림 가라오케 예약 시스템을 통해 편의성을 추구하는 것처럼, 디지털 환경에서도 신뢰도를 높이는 전략이 필요합니다. 온라인 인프라를 운영할 때 도메인의 신용도는 검색 엔진 평가에 결정적인 영향을 미</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0431.html">신도림 가라오케 예약 실패를 줄이는 검색 최적화 전략</a>
+        <p class="post-item__summary">많은 사용자가 디지털 환경에서 신도림 가라오케 예약 과정을 진행할 때 겪는 가장 큰 난관은 정보의 불균형이다. 검색 결과 상단에 노출되는 데이터가 반드시 신뢰할 수 있는 정보라고 단정 짓는 순간, </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0432.html">신도림 가라오케 예약 체크리스트와 구글 인덱싱 속도 초고속 광회선 대역폭 최적화</a>
+        <p class="post-item__summary">신도림 가라오케 예약 시 방문객이 확인해야 할 항목이 있듯이, 웹 사이트 운영에도 최적화 체크리스트가 존재합니다. 특히 인덱싱 속도를 높이려는 웹마스터들에게 대역폭은 가장 중요한 요소입니다. 효율적</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0212.html">신도림 가라오케 예약 콘텐츠보다 중요한 마르지 않는 1급수 백링크 주스 공급 서비스</a>
+        <p class="post-item__summary">인터넷상의 신도림 가라오케 예약 정보를 찾던 도중 여러분의 사이트가 검색 결과 뒤편에 머물고 있다면 무엇이 문제일까요. 콘텐츠의 품질도 중요하지만 결국 이를 뒷받침해주는 신뢰도 높은 연결 고리가 필</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0213.html">신도림 가라오케 예약 시스템을 활용한 구글 봇 정밀 검진 및 크롤 버짓 밀착 간호</a>
+        <p class="post-item__summary">웹사이트의 검색 엔진 최적화 상태를 점검하는 과정은 신도림 가라오케 예약 절차와 유사한 정교함을 요구합니다. 서버가 검색 봇을 어떻게 응대하는지에 따라 사이트의 신뢰도와 노출 빈도가 완전히 달라지기</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0214.html">신도림 가라오케 예약 고객을 위한 구글 틈새 키워드 트래픽 외환 거래 전략</a>
+        <p class="post-item__summary">디지털 환경에서 수익을 창출하는 방식은 매우 다양하며, 검색 트래픽을 활용한 분석은 마치 신도림 가라오케 예약 서비스의 효율성을 따지는 것과 흡사합니다. 특정 분야의 트래픽을 선점하고 이를 자산 가</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0215.html">신도림 가라오케 예약 노하우로 본 마포 단체 회식용 대형 룸 노래방 가격 정보</a>
+        <p class="post-item__summary">많은 이들이 단체 모임을 기획할 때 가장 먼저 실패하는 지점은 장소의 수용 인원과 내부 시설을 꼼꼼히 확인하지 않는 것입니다. 신도림 가라오케 예약 경험을 되살려 보면, 예약 당일에 발생할 수 있는</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
